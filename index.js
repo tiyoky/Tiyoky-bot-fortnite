@@ -76,4 +76,8 @@ client.on('messageCreate', async (message) => {
   }
 });
 
-client.login('process.env.TOKEN');
+client.on('disconnect', (event) => {
+  console.error(`Bot disconnected with code ${event.code}. Trying to reconnect...`);
+  client.login(process.env.TOKEN);
+});
+
