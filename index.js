@@ -32,6 +32,22 @@ client.on('message', async (message) => {
         // ...
       });
 
+      if (message.content.startsWith(PREFIX + 'auth')) {
+    // Call Fortnite API to get the authentication URL
+    try {
+      const response = await axios.get('https://fortnite-api.com/v2/auth/url');
+
+      // Handle the response from Fortnite API
+      const authURL = response.data.data.url; // Adjust based on the API response structure
+      message.author.send(`Voici votre lien d'authentification Fortnite : ${authURL}`);
+      message.channel.send('Je vous ai envoyé un message privé avec le lien d\'authentification.');
+    } catch (error) {
+      console.error('Erreur lors de la récupération du lien d\'authentification:', error.response.data.error);
+      message.channel.send('Échec de la récupération du lien d\'authentification. Veuillez réessayer plus tard.');
+    }
+  }
+
+
       // Handle the response from Fortnite API
       const changeResult = response.data; // Adjust based on the API response structure
       if (changeResult.success) {
