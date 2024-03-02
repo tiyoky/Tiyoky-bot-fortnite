@@ -13,7 +13,7 @@ const client = new Client({
 const PREFIX = ';';
 const adminIDs = ['1018206885704372274', '1175520604946968636'];
 
-client.on('ready', () => {
+client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
 });
 
