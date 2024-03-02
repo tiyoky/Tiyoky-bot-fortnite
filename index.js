@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents } = require('discord.js');
 const axios = require('axios');
 
 const client = new Client({ 
@@ -13,9 +13,9 @@ const client = new Client({
 const PREFIX = ';';
 const adminIDs = ['1018206885704372274', '1175520604946968636'];
 
-client.on('message', async (message) => {
+client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
-
+  
   if (message.content.startsWith(PREFIX + 'login')) {
     const args = message.content.slice(PREFIX.length).trim().split(' ');
     const authCode = args[1]; // Assuming the auth code is passed as an argument
