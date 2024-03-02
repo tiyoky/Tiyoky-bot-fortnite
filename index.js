@@ -1,7 +1,15 @@
 const Discord = require('discord.js');
 const axios = require('axios');
 
-const client = new Discord.Client();
+const client = new Client({ 
+  intents: [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MESSAGES,
+    Intents.FLAGS.DIRECT_MESSAGES,
+    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+    // ... ajoutez d'autres intents selon vos besoins
+  ],
+});
 const PREFIX = ';';
 const adminIDs = ['1018206885704372274', '1175520604946968636'];
 
