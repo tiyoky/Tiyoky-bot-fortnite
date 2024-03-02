@@ -15,7 +15,9 @@ const adminIDs = ['1018206885704372274', '1175520604946968636'];
 
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
+  client.user.setActivity('votre_activite');
 });
+
 
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
