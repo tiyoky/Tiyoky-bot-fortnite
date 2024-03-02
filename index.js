@@ -13,6 +13,10 @@ const client = new Client({
 const PREFIX = ';';
 const adminIDs = ['1018206885704372274', '1175520604946968636'];
 
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}`);
+});
+
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
   
